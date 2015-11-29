@@ -43,28 +43,75 @@
 				</section>
 				
 				<section>
-					<h1>Benoit : Les problématiques de l'approche classique</h1>
-				</section>
-				<section>
-					Benoit : 
-					Problématique de tirer les dépendances, leur version et de gérer les arbres de dépendances
-				</section>
-				<section>
-					Benoit : 
-					Problématique de gérer correctement un système de module (AMD / Common JS / ES6)
+					<h2>Les balises script...</h2> 
+					<div class="fragment">
+					<h3 >...c'est so 2010</h3>
+						<pre><code data-trim>
+&lt;script src="jquery.js">&lt;/script>
+&lt;script src="jquery-ui.js">&lt;/script>						
+&lt;script src="angular.js">&lt;/script>
+						</code></pre>
+					</div>
 				</section>
 
 				<section>
-					<h1>Benoit : Les solutions : JSPM et System JS</h1>
+					<h2>Les problèmes de l'approche traditionnelle</h2>
+					<ul>
+						<li>Les variables globales (<code>_</code>, <code>$</code>, <code>moment</code>, etc.)</li>
+						<li>Les conflits de versions</li>
+						<li>L'ordre d'exécution</li>
+						<li>Les dépendances transitives</li>
+					</ul>
 				</section>
 				<section>
-					<h2>Benoit : JSPM<h2>
-						Ca fait quoi ?
+					<h2>Exemple : </h2>
+					<img src="dependenciesHell.jpeg"/>					
+				</section>
+
+				<section>
+					<h2>Les modules en JS</h2>
+					<h4>AMD</h4>
+					<pre><code data-trim class="javascript">
+define(function (require, exports) {
+    var $ = require('jquery');
+    exports.version = $.jquery;
+});
+					</code></pre>
+					<h4>Common JS</h4>
+<pre><code data-trim class="javascript">
+var $ = require('jquery');
+
+export $.jquery;
+					</code></pre>					
+				</section>
+
+				<section>
+					<h2>Les modules ES6</h2>
+<pre><code data-trim class="javascript">
+import $ from 'jquery';
+
+const version = $.jquery;
+export default version;
+</code></pre>					
+				</section>
+
+				<section>
+					<h2>JSPM - Package Manager</h2>
+					<ul>
+						<li>Télécharger une version spécifique</li>
+						<li>Quelque soit son système de module utilisé</li>
+						<li>Depuis <em>Github</em>, <em>npm</em> ou le <em>registry jspm</em></li>
+					</ul>	
 				</section>	
 				
 				<section>
-					<h2>Benoit : System JS</h2>
-					Ca fait quoi ?
+					<h2>System JS - Module Loader</h2>
+					<ul>
+						<li>Charge les modules de façon asynchrone</li>
+						<li>Quelque soit le système de module utilisé</li>
+						<li>Système de plugins</li>
+						<li>Base sur polyfill d'ES6</li>
+					</ul>
 				</section>
 
 				<section>
@@ -133,7 +180,12 @@
 				</section>
 
 				<section>
-					<h2>Benoit : La concurrence - Browserify</h2>
+					<h2>La concurrence - Browserify</h2>
+					<ul>
+						<li>Support uniquement de Common JS</li>
+						<li>Bundle uniquement</li>
+						<li>Orienté <em>Isomorphic JS</em></li>
+					</ul>
 				</section>
 
 				<section>
