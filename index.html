@@ -198,8 +198,8 @@ jspm install github:samouss/angular-alert-banner
 jspm install npm:moment
 					</code></pre>
 					<aside class="notes">
-						- JSPM registry: map keywork sur un provider spécifique (angular -> github:angular/bower-angular)
-						- Cela permet aussi de récupérer les dependances préconfigurer pour éviter de faire de la configuration manuelle
+						- JSPM registry: map mot clé sur un provider spécifique (angular -> github:angular/bower-angular)
+						- Permet de récupérer les dependances préconfigurer pour éviter de faire de la configuration manuelle (main, dependencies, format)
 						- Une fois installé les dépendances sont sauvegarder dans la package.json, config.js
 			    </aside>
 				</section>
@@ -238,10 +238,7 @@ jspm install github:user/repo -o "{ main: 'path/to/main' }"
       "depsA": "./depsA",
       "depsB": "./depsB"
     }
-  },
-
-  ...
-
+  }
 }
 					</code></pre>
 				</section>
@@ -324,7 +321,7 @@ import './style.css!'
 						</code></pre>
 					</div>
 					<div class="fragment">
-						<p>Ce qui ce passe en réalité&nbsp;:</p>
+						<p>Ce qui se passe en réalité&nbsp;:</p>
 						<pre><code data-trim>
 &lt;head>
   &lt;title>Document&lt;/title>
