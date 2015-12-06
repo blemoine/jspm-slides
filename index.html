@@ -44,14 +44,15 @@
 
 				<section>
 					<h2>Les balises script...</h2>
-					<div class="fragment">
-					<h3 >...c'est so 2010</h3>
+					
+					
 						<pre><code data-trim>
 &lt;script src="jquery.js">&lt;/script>
 &lt;script src="jquery-ui.js">&lt;/script>
 &lt;script src="angular.js">&lt;/script>
 						</code></pre>
-					</div>
+					
+					<h3  class="fragment">...c'est so 2010</h3>
 				</section>
 
 				<section>
@@ -120,14 +121,14 @@ export default version;
 
 				<section>
 					<h2>Installer JSPM</h2>
-					<pre><code data-trim>
+					<pre><code data-trim class="bash">
 						npm install jspm --save-dev
 					</code></pre>
 				</section>
 
 				<section>
 					<h2>Initialiser le projet</h2>
-					<pre><code data-trim>
+					<pre><code data-trim class="bash" style="font-size:0.8em">
 jspm init
 
 ---
@@ -150,7 +151,7 @@ Which ES6 transpiler would you like to use, Babel, TypeScript or Traceur? [babel
 
 				<section>
 					<h2>config.js</h2>
-					<pre><code data-trim>
+					<pre><code data-trim class="javascript">
 System.config({
   baseURL: "/",
   defaultJSExtensions: true,
@@ -219,7 +220,7 @@ import Foo from './foo';
 const current = moment();
 const foo = Foo();
 
-foor.bar();
+foo.bar();
 					</code></pre>
 				</section>
 
@@ -234,12 +235,12 @@ foor.bar();
 				<section>
 					<h2>Performances</h2>
 					<ul>
-						<li>Eviter la transiplation au runtime (gulp, npm scripts)</li>
+						<li>Éviter la transpilation au runtime (gulp, npm scripts)</li>
 						<li>Créer un bundle avec toutes les dépendances</li>
 					</ul>
-					<p>Avant:</p>
+					<p>Avant&nbsp;:</p>
 					<img src="time.png"/>
-					<p>Après:</p>
+					<p>Après&nbsp;:</p>
 					<img src="time-opti.png"/>
 				</section>
 
@@ -249,7 +250,7 @@ foor.bar();
 					<pre><code data-trim>
 jspm bundle-sfx src/index.js dist/app.bundle.js
 					</code></pre>
-					<p>Options supportés:</p>
+					<p>Options supportées&nbsp;:</p>
 					<ul>
 						<li><em>minification</em></li>
 						<li><em>source maps</em></li>
@@ -261,7 +262,7 @@ jspm bundle-sfx src/index.js dist/app.bundle.js
 				<section>
 					<h2>Plugins</h2>
 					<p>De nombreux plugins disponibles CSS, JSON, TypeScript, ...</p>
-					<pre><code data-trim>
+					<pre><code data-trim class="bash">
 jspm install css
 					</code></pre>
 					<p>Usage:</p>
