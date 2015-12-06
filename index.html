@@ -39,7 +39,9 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h1>JSPM</h1>
+					<h1>JSPM</h1>					
+					<img src="jspm.svg" /> 
+					<h2><a href="jspm.io">jspm.io</a></h2>
 				</section>
 
 				<section>
@@ -93,6 +95,17 @@ import $ from 'jquery';
 
 const version = $.jquery;
 export default version;
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Les modules ES6</h2>
+<pre><code data-trim class="javascript">
+import {find, filter as myFilter} from 'lodash';
+
+const result = myFilter([1,2,3], n => n % 2 == 0);
+
+export const result;
 </code></pre>
 				</section>
 
