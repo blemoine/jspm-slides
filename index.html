@@ -251,13 +251,21 @@ foo.bar();
 					<h2>Performances</h2>
 					<ul>
 						<li>Éviter la transpilation au runtime (<em>gulp</em>, <em>npm scripts</em>)</li>
-						<li>Créer un bundle avec toutes les dépendances</li>
+						<li class="fragment" data-fragment-index="1">Créer un bundle avec les dépendances externes</li>
 					</ul>
+					<pre class="fragment" data-fragment-index="1"><code data-trim>
+jspm bundle angular + moment dependencies.bundle.js --inject
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Performances</h2>
 					<p>Avant&nbsp;:</p>
 					<img src="time.png"/>
-					<p>Après&nbsp;:</p>
-					<img src="time-opti.png"/>
-					<!-- TODO : a mon avis ici il faudrait un vrai exemple du vrai monde sur comment faire la conf -->
+					<div class="fragment">
+						<p>Après&nbsp;:</p>
+						<img src="time-opti.png"/>
+					</div>
 				</section>
 
 				<section>
@@ -268,10 +276,10 @@ jspm bundle-sfx src/index.js dist/app.bundle.js
 					</code></pre>
 					<p>Options supportées&nbsp;:</p>
 					<ul>
-						<li><em>minification</em></li>
-						<li><em>source maps</em></li>
-						<li><em>format</em></li>
-						<li><em>runtime</em></li>
+						<li class="fragment"><em>minification</em></li>
+						<li class="fragment"><em>source maps</em></li>
+						<li class="fragment"><em>format</em></li>
+						<li class="fragment"><em>runtime</em></li>
 					</ul>
 				</section>
 
