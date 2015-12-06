@@ -281,11 +281,21 @@ jspm bundle-sfx src/index.js dist/app.bundle.js
 					<pre><code data-trim class="bash">
 jspm install css
 					</code></pre>
-					<p>Usage&nbsp;:</p>
-					<pre><code data-trim>
+					<div class="fragment">
+						<p>Usage&nbsp;:</p>
+						<pre><code data-trim>
 import './style.css!'
-					</code></pre>
-					<!-- TODO manque peut etre un exemple de ce que ca fait précisemment -->
+						</code></pre>
+					</div>
+					<div class="fragment">
+						<p>Ce qui ce passe en réalité&nbsp;:</p>
+						<pre><code data-trim>
+&lt;head>
+  &lt;title>Document&lt;/title>
+  &lt;link type="text/css" rel="stylesheet" href="style.css">
+&lt;/head>
+						</code></pre>
+					</div>
 				</section>
 
 				<section>
