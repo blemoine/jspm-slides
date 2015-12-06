@@ -112,9 +112,9 @@ export const result;
 				<section>
 					<h2>JSPM - Package Manager</h2>
 					<ul>
-						<li>Télécharger une version spécifique</li>
-						<li>Quelque soit son système de module utilisé</li>
-						<li>Depuis <em>Github</em>, <em>npm</em> ou le <em>registry jspm</em></li>
+						<li>Télécharger une version spécifique d'une dépendance</li>
+						<li class="fragment">Quelque soit son système de module utilisé</li>
+						<li class="fragment">Depuis <em>Github</em>, <em>npm</em> ou le <em>registry jspm</em></li>
 					</ul>
 				</section>
 
@@ -122,9 +122,9 @@ export const result;
 					<h2>System JS - Module Loader</h2>
 					<ul>
 						<li>Charge les modules de façon asynchrone</li>
-						<li>Quelque soit le système de module utilisé</li>
-						<li>Système de plugins</li>
-						<li>Base sur polyfill d'ES6</li>
+						<li class="fragment">Quelque soit le système de module utilisé</li>
+						<li class="fragment">Système de plugins</li>
+						<li class="fragment">Basé sur polyfill d'ES6</li>
 					</ul>
 				</section>
 
@@ -192,7 +192,7 @@ System.config({
 						<li><em>github</em></li>
 						<li><em>npm</em></li>
 					</ul>
-					<pre><code data-trim>
+					<pre><code data-trim class="bash">
 jspm install angular
 jspm install github:samouss/angular-alert-banner
 jspm install npm:moment
@@ -206,7 +206,7 @@ jspm install npm:moment
 
 				<section>
 					<h2>Configurer des dépendances</h2>
-					<p>Principales propriétés qui peuvent être surchargés:</p>
+					<p>Principales propriétés qui peuvent être surchargées&nbsp;:</p>
 					<ul>
 						<li><em>main</em></li>
 						<li><em>map</em></li>
@@ -238,9 +238,10 @@ foo.bar();
 				</section>
 
 				<section>
-					<h2>Transpilation</h2>
-					<p>babel par défaut, support de traceur et TypeScript</p>
+					<h2>Transpilation</h2>					
 					<ul>
+						<li>Babel par défaut</li>
+						<li>Support de traceur et TypeScript<sup>*</sup></li>
 						<li>transpilation au runtime</li>
 					</ul>
 				</section>
