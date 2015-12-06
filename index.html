@@ -212,6 +212,7 @@ jspm install npm:moment
 						<li><em>map</em></li>
 						<li><em>format</em></li>
 					</ul>
+					<!-- TODO : a mon avis ici il faudrait plusieurs slides expliquant quel option fait quoi -->
 					<pre><code data-trim>
 jspm install github:user/repo -o "{ main: 'path/to/main' }"
 					</code></pre>
@@ -249,18 +250,19 @@ foo.bar();
 				<section>
 					<h2>Performances</h2>
 					<ul>
-						<li>Éviter la transpilation au runtime (gulp, npm scripts)</li>
+						<li>Éviter la transpilation au runtime (<em>gulp</em>, <em>npm scripts</em>)</li>
 						<li>Créer un bundle avec toutes les dépendances</li>
 					</ul>
 					<p>Avant&nbsp;:</p>
 					<img src="time.png"/>
 					<p>Après&nbsp;:</p>
 					<img src="time-opti.png"/>
+					<!-- TODO : a mon avis ici il faudrait un vrai exemple du vrai monde sur comment faire la conf -->
 				</section>
 
 				<section>
 					<h2>Production</h2>
-					<p style="white-space:nowrap;">Création d'un bundle auto exécutable (via SystemJS Builder):</p>
+					<p style="white-space:nowrap;">Création d'un bundle auto exécutable (via SystemJS Builder)&nbsp;:</p>
 					<pre><code data-trim>
 jspm bundle-sfx src/index.js dist/app.bundle.js
 					</code></pre>
@@ -275,14 +277,15 @@ jspm bundle-sfx src/index.js dist/app.bundle.js
 
 				<section>
 					<h2>Plugins</h2>
-					<p>De nombreux plugins disponibles CSS, JSON, TypeScript, ...</p>
+					<p>De nombreux plugins disponibles CSS, JSON, TypeScript...</p>
 					<pre><code data-trim class="bash">
 jspm install css
 					</code></pre>
-					<p>Usage:</p>
+					<p>Usage&nbsp;:</p>
 					<pre><code data-trim>
 import './style.css!'
 					</code></pre>
+					<!-- TODO manque peut etre un exemple de ce que ca fait précisemment -->
 				</section>
 
 				<section>
