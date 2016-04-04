@@ -92,56 +92,58 @@
 					<h4>AMD</h4>
 					<pre><code data-trim class="javascript">
 define(function (require, exports) {
-    var $ = require('jquery');
-    exports.version = $.jquery;
+    var _ = require('lodash');
+    exports.add = function add(a, b) {
+      return _.add(a, b);
+    };
 });
 					</code></pre>
 					<h4>Common JS</h4>
 <pre><code data-trim class="javascript">
-var $ = require('jquery');
+var _ = require('lodash');
 
-export $.jquery;
+module.exports = {
+  add: function add(a, b) {
+    return _.add(a, b);
+  };
+}
 					</code></pre>
 				</section>
 
 				<section>
 					<h2>Les modules ES6</h2>
-<pre><code data-trim class="javascript">
-import $ from 'jquery';
+<pre><code class="javascript" data-trim>
+//MyMath.js
+import _ from 'lodash';
 
-const version = $.jquery;
-export default version;
+export default function add(a, b) {
+  return _.add(a, b);
+}
+export function multiply(a, b) {
+  return a * b;
+}
+</code></pre>
+<pre><code class="javascript" data-trim>
+import myAdd from './MyMath';
+import {multiply} from './MyMath';
+
+myAdd(1, 2) //3
+multiply(2, 3) //6
 </code></pre>
 				</section>
 
-				<section>
-					<h2>Les modules ES6</h2>
-<pre><code data-trim class="javascript">
-import {find, filter as myFilter} from 'lodash';
-
-const result = myFilter([1,2,3], n => n % 2 == 0);
-
-export const result;
-</code></pre>
-				</section>
+        <section>
+          <h2>System JS</h2>
+          <ul>
+            <li>Module Loader</li>
+          </ul>
+        </section>
 
 				<section>
-					<h2>JSPM - Package Manager</h2>
-					<ul>
-						<li>Télécharger une version spécifique d'une dépendance</li>
-						<li class="fragment">Quelque soit son système de module utilisé</li>
-						<li class="fragment">Depuis <em>Github</em>, <em>npm</em> ou le <em>registry jspm</em></li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>System JS - Module Loader</h2>
-					<ul>
-						<li>Charge les modules de façon asynchrone</li>
-						<li class="fragment">Quelque soit le système de module utilisé</li>
-						<li class="fragment">Système de plugins</li>
-						<li class="fragment">Basé sur polyfill d'ES6</li>
-					</ul>
+					<h2>JSPM</h2>
+          <ul>
+            <li>Package Manager</li>
+          </ul>
 				</section>
 
 				<section>
@@ -327,7 +329,7 @@ jspm bundle-sfx src/index.js dist/app.bundle.js
 
 				<section>
 					<h2>Plugins</h2>
-					<p>De nombreux plugins disponibles CSS, JSON, TypeScript...</p>
+					<p>De nombreux plugins disponibles CSS, JSON...</p>
 					<pre><code data-trim class="bash">
 jspm install css
 					</code></pre>
