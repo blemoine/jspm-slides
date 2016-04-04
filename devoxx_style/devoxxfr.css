@@ -1,0 +1,53 @@
+* {
+  font-family: 'Open Sans', sans-serif !important;
+}
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  font-weight:400;
+}
+
+.reveal .slides > section {
+    padding:10px;
+}
+.reveal pre {
+  font-size: 26px;
+}
+.reveal pre code {
+  max-height: 460px;
+}
+html body {
+  background-image:linear-gradient(#2a013b, #10001a);
+
+}
+
+html.intro body {
+  background-image: url("./background_1920_1080_HD.jpg"); }
+
+
+html.topbanner body {
+  background-image:linear-gradient(#10001a, #2a013b); }
+
+.reveal section img {
+  border:none;
+  background:transparent;
+}
+
+/* devoxx footer */
+.footer {
+  position:absolute;
+  bottom: 0px;
+  width: 100%;
+  /*background-image: url("./footer_engrenage.jpg");*/
+  background-position: center top; }
+html.intro .footer {
+  background-image: none;
+}
+.footer img {
+  position: absolute;
+  top: 0px;
+  right: 30px; }
+
+.footer p {
+  margin: 0px;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 0.6em; }
