@@ -251,16 +251,15 @@ jspm install github:user/repo -o "{ main: 'path/to/main' }"
 // import dependency
 import moment from 'moment';
 
-// import component
+// import our module
 import ClockComponent from 'clock-component';
 // or
 import ClockComponent from './src/index.ts';
 
-const current = moment();
-const component = ClockComponent();
+const timestamp: number = moment().unix();
+const component: Component = ClockComponent;
 
-component.render();
-					</code></pre>
+component.render();</code></pre>
 				</section>
 
 				<section>
