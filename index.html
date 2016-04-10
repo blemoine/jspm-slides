@@ -166,10 +166,10 @@ jspm init
 ---
 
 - Init Mode (Quick, Standard, Custom) [Quick]: Quick
-- Local package name (recommended, optional): starter
+- Local package name (recommended, optional): clock-component
 - package.json directories.lib [src]: src
 - System.config browser baseURL (optional):
-- System.config local package main [app-starter.js]: index.ts
+- System.config local package main [clock-component.js]: index.ts
 - System.config transpiler (Babel, Traceur, TypeScript, None) [babel]: typescript</code></pre>
 				</section>
 
@@ -181,7 +181,7 @@ SystemJS.config({
   paths: {
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*",
-    "starter/": "src/"
+    "clock-component/": "src/"
   }
 });</code></pre>
 				</section>
@@ -192,7 +192,7 @@ SystemJS.config({
 SystemJS.config({
   transpiler: "plugin-typescript",
   packages: {
-    "starter": {
+    "clock-component": {
       "format": "esm",
       "main": "index.ts",
       "meta": {
