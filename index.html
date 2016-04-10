@@ -242,19 +242,25 @@ jspm install github:user/repo -o "{ main: 'path/to/main' }"
 					<h2>Utiliser SystemJS</h2>
 					<p>index.html</p>
 					<pre><code data-trim>
-&lt;script src="jspm_packages/system.js">&lt;/script>
-&lt;script src="config.js">&lt;/script>
-&lt;script>System.import('index');&lt;/script>
+&lt;script src="./jspm_packages/system.js">&lt;/script>
+&lt;script src="./jspm.browser.js">&lt;/script>
+&lt;script src="./jspm.config.js">&lt;/script>
+&lt;script>System.import('bootstrap.ts');&lt;/script>
 					</code></pre>
-					<p>index.js</p>
+					<p>bootstrap.ts</p>
 					<pre><code data-trim>
+// import dependency
 import moment from 'moment';
-import Foo from './foo';
+
+// import component
+import ClockComponent from 'clock-component';
+// or
+import ClockComponent from './src/index.ts';
 
 const current = moment();
-const foo = Foo();
+const component = ClockComponent();
 
-foo.bar();
+component.render();
 					</code></pre>
 				</section>
 
