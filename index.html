@@ -266,7 +266,7 @@ component.render();</code></pre>
 					<h2>Transpilation</h2>
 					<ul>
 						<li>Babel par défaut</li>
-						<li>Support de traceur et TypeScript<sup style="vertical-align:0px;">*</sup></li>
+						<li>Support de Traceur et TypeScript</li>
 						<li>Transpilation au runtime</li>
 					</ul>
 				</section>
@@ -274,22 +274,27 @@ component.render();</code></pre>
 				<section>
 					<h2>Performances</h2>
 					<ul>
-						<li>Éviter la transpilation au runtime (<em>gulp</em>, <em>npm scripts</em>)</li>
-						<li class="fragment" data-fragment-index="1">Créer un bundle avec les dépendances externes</li>
+						<li>Éviter la transpilation au runtime</li>
+						<li class="fragment" data-fragment-index="1">Créer un bundle avec le CLI de JSPM</li>
 					</ul>
 					<pre class="fragment" data-fragment-index="1"><code data-trim>
-jspm bundle angular + moment dependencies.bundle.js --inject
-					</code></pre>
+jspm bundle clock-component --watch --inject --dev
+</code></pre>
 				</section>
 
 				<section>
 					<h2>Performances</h2>
-					<p>Avant&nbsp;:</p>
-					<img src="time.png"/>
-					<div class="fragment">
-						<p>Après&nbsp;:</p>
-						<img src="time-opti.png"/>
-					</div>
+					<ul>
+						<div style="text-align: center;">
+							<p>Transpilation au runtime (180 fichiers) :</p>
+							<p><strong>293</strong> requêtes : <strong>12.75</strong> secondes</p>
+						</div>
+						<br>
+						<div style="text-align: center;" class="fragment">
+							<p>Bundle avec l'option --watch&nbsp;:</p>
+							<p><strong>21</strong> requêtes : <strong>2.35</strong> secondes</p>
+						</div>
+					</ul>
 				</section>
 
 				<section>
