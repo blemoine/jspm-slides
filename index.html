@@ -174,25 +174,35 @@ jspm init
 				</section>
 
 				<section>
-					<h2>config.js</h2>
+					<h2>jspm.browser.js</h2>
 					<pre><code data-trim class="javascript">
-System.config({
+SystemJS.config({
   baseURL: "/",
-  defaultJSExtensions: true,
-  transpiler: "babel",
-  babelOptions: { ... },
   paths: {
     "github:*": "jspm_packages/github/*",
-    "npm:*": "jspm_packages/npm/*"
-  },
-
-  map: {
-    "babel": "npm:babel-core@5.8.34",
-    "babel-runtime": "npm:babel-runtime@5.8.34",
-    ...
+    "npm:*": "jspm_packages/npm/*",
+    "starter/": "src/"
   }
-});
-					</code></pre>
+});</code></pre>
+				</section>
+
+				<section>
+					<h2>jspm.config.js</h2>
+					<pre><code data-trim class="javascript">
+SystemJS.config({
+  transpiler: "plugin-typescript",
+  packages: {
+    "starter": {
+      "format": "esm",
+      "main": "index.ts",
+      "meta": {
+        "*.ts": {
+          "loader": "plugin-typescript"
+        }
+      }
+    }
+  }
+});</code></pre>
 				</section>
 
 				<section>
