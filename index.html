@@ -239,32 +239,6 @@ jspm install github:user/repo -o "{ main: 'path/to/main' }"
 				</section>
 
 				<section>
-					<h2>Configurer des dépendances</h2>
-					<p><em>map</em> permet de spécifier un path vers un élément donné</p>
-					<pre><code data-trim class="bash">
-// user/repo@master folder structure
-
-├── index.js
-├── depsA.js
-├── depsB.js
-├── node_modules
-├── package.json
-					</code></pre>
-					<pre><code data-trim>
-// config.js
-
-"overrides": {
-  "github:user/repo@master": {
-    "map": {
-      "depsA": "./depsA",
-      "depsB": "./depsB"
-    }
-  }
-}
-					</code></pre>
-				</section>
-
-				<section>
 					<h2>Utiliser SystemJS</h2>
 					<p>index.html</p>
 					<pre><code data-trim>
