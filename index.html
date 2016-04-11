@@ -274,7 +274,7 @@ import ClockComponent from 'clock-component';
 import ClockComponent from './src/index.js';
 
 const timestamp = moment().unix();
-const component = ClockComponent;
+const component = ClockComponent();
 
 component.render();</code></pre>
 				</section>
@@ -331,7 +331,49 @@ jspm build bootstrap.js app.bundle.js
 				</section>
 
         <section>
-          <h2>Tree Shaking</h2>
+          <h2>Tree-shaking 1/2</h2>
+					bootstrap.js
+					<pre style="font-size: 1.3rem"><code data-trim>
+import moment from 'moment';
+import ClockComponent from './src/index.js';
+
+const timestamp = moment().unix();
+const component = ClockComponent();
+
+component.render();
+</code></pre>
+
+					src/index.js
+					<pre style="font-size: 1.3rem"><code data-trim>
+export default function ClockComponent() {
+  return {
+    render: () => 'clock component rendering...'
+  };
+}
+
+export function otherFunction(x) {
+	return x + 10;
+}
+</code></pre>
+        </section>
+
+				<section>
+          <h2>Tree-shaking 2/2</h2>
+					app.bundle.js
+					<pre><code data-trim>
+// moment library
+
+function ClockComponent() {
+  return {
+    render: () => 'clock component rendering...'
+  };
+}
+
+const timestamp = moment().unix();
+const component = ClockComponent();
+
+component.render();
+</code></pre>
         </section>
 
 				<section>
