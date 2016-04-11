@@ -169,8 +169,8 @@ jspm init
 - Local package name (recommended, optional): clock-component
 - package.json directories.lib [src]: src
 - System.config browser baseURL (optional):
-- System.config local package main [clock-component.js]: index.ts
-- System.config transpiler (Babel, Traceur, TypeScript, None) [babel]: typescript</code></pre>
+- System.config local package main [clock-component.js]: index.js
+- System.config transpiler (Babel, Traceur, TypeScript, None) [babel]: babel</code></pre>
 				</section>
 
 				<section>
@@ -190,14 +190,14 @@ SystemJS.config({
 					<h2>jspm.config.js</h2>
 					<pre><code data-trim class="javascript">
 SystemJS.config({
-  transpiler: "plugin-typescript",
+  transpiler: "plugin-babel",
   packages: {
     "clock-component": {
       "format": "esm",
-      "main": "index.ts",
+      "main": "index.js",
       "meta": {
-        "*.ts": {
-          "loader": "plugin-typescript"
+        "*.js": {
+          "loader": "plugin-babel"
         }
       }
     }
@@ -239,22 +239,22 @@ jspm install github:user/repo -o "{ main: 'path/to/main' }"
 
 				<section>
 					<h2>Utiliser SystemJS</h2>
-					<p>index.html</p>
-					<pre><code data-trim>
+					<div>index.html</div>
+					<pre style="font-size: 1.2rem"><code data-trim>
 &lt;script src="./jspm_packages/system.js">&lt;/script>
 &lt;script src="./jspm.browser.js">&lt;/script>
 &lt;script src="./jspm.config.js">&lt;/script>
-&lt;script>System.import('bootstrap.ts');&lt;/script>
+&lt;script>System.import('bootstrap.js');&lt;/script>
 					</code></pre>
-					<p>bootstrap.ts</p>
-					<pre><code data-trim>
+					<div>bootstrap.js</div>
+					<pre style="font-size: 1.2rem"><code data-trim>
 // import dependency
 import moment from 'moment';
 
 // import our module
 import ClockComponent from 'clock-component';
 // or
-import ClockComponent from './src/index.ts';
+import ClockComponent from './src/index.js';
 
 const timestamp = moment().unix();
 const component = ClockComponent;
