@@ -256,8 +256,8 @@ import ClockComponent from 'clock-component';
 // or
 import ClockComponent from './src/index.ts';
 
-const timestamp: number = moment().unix();
-const component: Component = ClockComponent;
+const timestamp = moment().unix();
+const component = ClockComponent;
 
 component.render();</code></pre>
 				</section>
@@ -299,6 +299,7 @@ jspm bundle clock-component --watch --inject --dev
 
 				<section>
 					<h2>Production</h2>
+          TODO
 					<p style="white-space:nowrap;">Création d'un bundle auto exécutable (via SystemJS Builder)&nbsp;:</p>
 					<pre><code data-trim>
 jspm bundle-sfx src/index.js dist/app.bundle.js
@@ -311,6 +312,10 @@ jspm bundle-sfx src/index.js dist/app.bundle.js
 						<li class="fragment"><em>runtime</em></li>
 					</ul>
 				</section>
+
+        <section>
+          <h2>Tree Shaking</h2>
+        </section>
 
 				<section>
 					<h2>Plugins</h2>
@@ -334,6 +339,10 @@ import './style.css!'
 						</code></pre>
 					</div>
 				</section>
+
+        <section>
+          <h2>Universal</h2>
+        </section>
 
 				<section>
 					<h2>La concurrence - Webpack</h2>
