@@ -187,7 +187,7 @@ SystemJS.config({
 				</section>
 
 				<section>
-					<h2>jspm.config.js</h2>
+					<h2>jspm.config.js 1/2</h2>
 					<pre><code data-trim class="javascript">
 SystemJS.config({
   transpiler: "plugin-babel",
@@ -202,7 +202,24 @@ SystemJS.config({
       }
     }
   }
-});</code></pre>
+});
+</code></pre>
+				</section>
+
+				<section>
+					<h2>jspm.config.js 2/2</h2>
+					<pre><code data-trim class="javascript">
+SystemJS.config({
+  packageConfigPaths: [
+    "github:*/*.json",
+    "npm:@*/*.json",
+    "npm:*.json"
+  ],
+  map: {
+    "moment": "npm:moment@2.12.0"
+  }
+});
+</code></pre>
 				</section>
 
 				<section>
