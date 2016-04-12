@@ -224,7 +224,7 @@ SystemJS.config({
     "npm:*.json"
   ],
   map: {
-    "moment": "npm:moment@2.12.0"
+    "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.5"
   }
 });
 </code></pre>
@@ -292,8 +292,8 @@ component.render();</code></pre>
 					<h2>Transpilation</h2>
 					<ul>
 						<li>Babel par défaut</li>
-						<li>Support de Traceur et TypeScript</li>
-						<li>Transpilation au runtime</li>
+						<li class="fragment" data-fragment-index="1">Support de Traceur et TypeScript</li>
+						<li class="fragment" data-fragment-index="2">Transpilation au runtime</li>
 					</ul>
 					<aside class="notes">
 						<ul>
@@ -310,7 +310,7 @@ component.render();</code></pre>
 						<li class="fragment" data-fragment-index="1">Créer un bundle avec le CLI de JSPM</li>
 					</ul>
 					<pre class="fragment" data-fragment-index="1"><code data-trim class="bash">
-jspm bundle clock-component --watch --inject --dev
+jspm bundle clock-component --watch --inject
 </code></pre>
 					<aside class="notes">
 						<ul>
