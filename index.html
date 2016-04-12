@@ -171,6 +171,14 @@ jspm init
 - System.config browser baseURL (optional):
 - System.config local package main [clock-component.js]: index.js
 - System.config transpiler (Babel, Traceur, TypeScript, None) [babel]: babel</code></pre>
+					<aside class="notes">
+						<p>Après init:</p>
+						<ul>
+							<li>téléchargement SystemJS</li>
+							<li>téléchargement Transpiler</li>
+							<li>creation de deux fichiers</li>
+						</ul>
+					</aside>
 				</section>
 
 				<section>
@@ -238,7 +246,8 @@ jspm install npm:moment
 					<aside class="notes">
 						- JSPM registry: map mot clé sur un provider spécifique (angular -> github:angular/bower-angular)
 						- Permet de récupérer les dependances préconfigurer pour éviter de faire de la configuration manuelle (main, dependencies, format)
-						- Une fois installé les dépendances sont sauvegarder dans la package.json, config.js
+						- Une fois installé les dépendances sont sauvegarder dans la package.json, jspm.config.js
+						- custom registry
 			    </aside>
 				</section>
 
@@ -286,6 +295,12 @@ component.render();</code></pre>
 						<li>Support de Traceur et TypeScript</li>
 						<li>Transpilation au runtime</li>
 					</ul>
+					<aside class="notes">
+						<ul>
+							<li>N requêtes par N fichiers</li>
+							<li>latence dû à la transpilation</li>
+						</ul>
+			    </aside>
 				</section>
 
 				<section>
@@ -297,6 +312,12 @@ component.render();</code></pre>
 					<pre class="fragment" data-fragment-index="1"><code data-trim class="bash">
 jspm bundle clock-component --watch --inject --dev
 </code></pre>
+					<aside class="notes">
+						<ul>
+							<li>génération d'un seul fichier</li>
+							<li>rebuild uniquement le fichier qui a changé</li>
+						</ul>
+			    </aside>
 				</section>
 
 				<section>
@@ -328,6 +349,12 @@ jspm build bootstrap.js app.bundle.js
 						<li class="fragment"><em>runtime</em></li>
 						<li class="fragment"><em>rollup</em></li>
 					</ul>
+					<aside class="notes">
+						<ul>
+							<li>qu'un seul fichier chargé</li>
+							<li>rollupjs module bundler</li>
+						</ul>
+			    </aside>
 				</section>
 
         <section>
