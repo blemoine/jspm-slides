@@ -133,6 +133,14 @@ multiply(2, 3) //6
 				</section>
 
 
+        <section>
+          <h2>System JS</h2>
+          <ul>
+            <li>Module Loader</li>
+            <li>License MIT</li>
+          </ul>
+        </section>
+
 				<section>
 					<h2>JSPM</h2>
           <ul>
@@ -141,13 +149,6 @@ multiply(2, 3) //6
           </ul>
 				</section>
 
-        <section>
-          <h2>System JS</h2>
-          <ul>
-            <li>Module Loader</li>
-            <li>License MIT</li>
-          </ul>
-        </section>
 
 
 				<section>
@@ -255,7 +256,7 @@ jspm install npm:moment
 				</section>
 
 				<section>
-					<h2>Configurer des dépendances</h2>
+					<h2>Surcharger le <em>package.json</em></h2>
 					<p>Principales propriétés qui peuvent être surchargées&nbsp;:</p>
 					<ul>
 						<li><em>main</em></li>
@@ -430,7 +431,28 @@ import './style.css!'
 				</section>
 
         <section>
-          <h2>Universal</h2>
+          <h2>Universal - <em>aka Isomorphic</em></h2>
+          <pre class="fragment"><code class="bash" data-trim>
+jspm install --dev npm:express
+          </code></pre>
+          <pre class="fragment"><code class="javascript" data-trim>
+import express from 'express';
+import React from 'react';
+import ReactDOMServer from 'react-dom/server.js';
+import {HelloWorld} from 'jspm-react-component';
+
+const app = express();
+app.get('/', (req, res) => {
+    let componentHTML = ReactDOMServer.renderToString(React.createElement(HelloWorld));
+    res.send('<!doctype html><body>' + componentHTML);
+});
+
+app.listen('8080', () => console.log('Listening on port 8080'));
+          </code></pre>
+          <pre class="fragment"><code class="bash" data-trim>
+jspm run server.js
+          </code></pre>
+
         </section>
 
 				<section>
