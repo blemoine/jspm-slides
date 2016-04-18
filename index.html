@@ -368,7 +368,7 @@ component.render();</code></pre>
 						<li class="fragment" data-fragment-index="1">Créer un bundle avec le CLI de JSPM</li>
 					</ul>
 					<pre class="fragment" data-fragment-index="1"><code data-trim class="bash">
-jspm bundle clock-component --watch --inject
+jspm bundle clock-component --watch
 </code></pre>
 					<aside class="notes">
 						<ul>
@@ -452,6 +452,12 @@ export function otherFunction(x) {
 	return x + 10;
 }
 </code></pre>
+					<aside class="notes">
+						<ul>
+							<li>Analayse votre code</li>
+							<li>Supprime le code exporté non utilisé</li>
+						</ul>
+					</aside>
         </section>
 
 				<section>
@@ -471,6 +477,12 @@ const component = ClockComponent();
 
 component.render();
 </code></pre>
+					<aside class="notes">
+						<ul>
+							<li>Intérêt sur les librairie compatible</li>
+							<li>Fonctionne uniquement avec les modules ES6</li>
+						</ul>
+					</aside>
         </section>
 
 				<section>
