@@ -267,8 +267,9 @@ jspm install npm:moment
 						<ul>
 							<li>JSPM registry: map mot clé sur un provider spécifique (angular -> github:angular/bower-angular)</li>
 							<li>Permet de récupérer les dependances préconfigurer pour éviter de faire de la configuration manuelle (main, dependencies, format)</li>
-							<li>Une fois installé les dépendances sont sauvegarder dans la package.json, jspm.config.js</li>
+							<li>plugin Github / NPM</li>
 							<li>custom registry (ex: BitBucket)</li>
+							<li>Une fois installé les dépendances sont sauvegarder dans la package.json, jspm.config.js</li>
 						</ul>
 			    </aside>
 				</section>
@@ -283,16 +284,6 @@ jspm install npm:moment
 					<pre><code data-trim class="bash">
 jspm install github:user/repo -o "{ main: 'path/to/main' }"
 					</code></pre>
-					<aside class="notes">
-						<ul>
-							<li>JSPM registry: map mot clé sur un provider spécifique (angular -> github:angular/bower-angular)</li>
-							<li>JSPM registry: Permet de récupérer les dependances préconfigurer pour éviter de faire de la configuration manuelle (main, dependencies, format)</li>
-							<li>plugin Github / NPM</li>
-							<li>custom registry (ex: BitBucket)</li>
-							<li>Une fois installé les dépendances sont sauvegarder dans la package.json, jspm.config.js</li>
-							<li>auto-config basé sur le package.json et parsing du fichier</li>
-						</ul>
-			    </aside>
 				</section>
 
 				<section>
