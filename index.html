@@ -187,6 +187,7 @@ jspm init
 						<ul>
 							<li>téléchargement SystemJS</li>
 							<li>téléchargement transpiler</li>
+							<li>Création d'une section dans `jspm` package.json</li>
 							<li>Création des fichiers de configs</li>
 						</ul>
 					</aside>
@@ -235,7 +236,7 @@ SystemJS.config({
     "npm:*.json"
   ],
   map: {
-    "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.5"
+    "plugin-babel": "npm:systemjs-plugin-babel@0.0.9"
   }
 });
 </code></pre>
@@ -248,6 +249,7 @@ SystemJS.config({
 						<li><em>registry</em></li>
 						<li><em>github</em></li>
 						<li><em>npm</em></li>
+						<li><em>custom</em></li>
 					</ul>
 					<pre><code data-trim class="bash">
 jspm install angular
@@ -255,10 +257,12 @@ jspm install github:username/repo
 jspm install npm:moment
 					</code></pre>
 					<aside class="notes">
-						- JSPM registry: map mot clé sur un provider spécifique (angular -> github:angular/bower-angular)
-						- Permet de récupérer les dependances préconfigurer pour éviter de faire de la configuration manuelle (main, dependencies, format)
-						- Une fois installé les dépendances sont sauvegarder dans la package.json, jspm.config.js
-						- custom registry
+						<ul>
+							<li>JSPM registry: map mot clé sur un provider spécifique (angular -> github:angular/bower-angular)</li>
+							<li>Permet de récupérer les dependances préconfigurer pour éviter de faire de la configuration manuelle (main, dependencies, format)</li>
+							<li>Une fois installé les dépendances sont sauvegarder dans la package.json, jspm.config.js</li>
+							<li>custom registry (ex: BitBucket)</li>
+						</ul>
 			    </aside>
 				</section>
 
@@ -272,6 +276,44 @@ jspm install npm:moment
 					<pre><code data-trim class="bash">
 jspm install github:user/repo -o "{ main: 'path/to/main' }"
 					</code></pre>
+					<aside class="notes">
+						<ul>
+							<li>JSPM registry: map mot clé sur un provider spécifique (angular -> github:angular/bower-angular)</li>
+							<li>JSPM registry: Permet de récupérer les dependances préconfigurer pour éviter de faire de la configuration manuelle (main, dependencies, format)</li>
+							<li>plugin Github / NPM</li>
+							<li>custom registry (ex: BitBucket)</li>
+							<li>Une fois installé les dépendances sont sauvegarder dans la package.json, jspm.config.js</li>
+							<li>auto-config basé sur le package.json et parsing du fichier</li>
+						</ul>
+			    </aside>
+				</section>
+
+				<section>
+					<h2>Surcharger le <em>package.json</em></h2>
+					<pre><code data-trim class="bash">
+jspm install github:eligrey/FileSaver.js
+					</code></pre>
+					<pre class="fragment"><code data-trim class="bash">
+warn Package eligrey/FileSaver.js has no "main" entry point set in its package config.
+					</code></pre>
+					<pre class="fragment"><code data-trim class="bash">
+jspm install github:eligrey/FileSaver.js -o "{ main: 'FileSaver.js' }"
+					</code></pre>
+					<pre class="fragment"><code data-trim class="js">
+"overrides": {
+  "github:eligrey/FileSaver.js@master": {
+    "main": "FileSaver.js"
+  }
+}
+					</code></pre>
+					<aside class="notes">
+						<ul>
+							<li>installation d'un package sans package.json</li>
+							<li>warning pas de main</li>
+							<li>installation avec un override</li>
+							<li>sauvegarde de l'override dasn le package.json</li>
+						</ul>
+			    </aside>
 				</section>
 
 				<section>
@@ -297,6 +339,12 @@ const timestamp = moment().unix();
 const component = ClockComponent();
 
 component.render();</code></pre>
+					<aside class="notes">
+						<ul>
+							<li>mode dev</li>
+							<li>ordre des fichiers important</li>
+						</ul>
+					</aside>
 				</section>
 
 				<section>
@@ -308,8 +356,9 @@ component.render();</code></pre>
 					</ul>
 					<aside class="notes">
 						<ul>
-							<li>N requêtes par N fichiers</li>
+							<li>N requêtes pour N fichiers</li>
 							<li>latence dû à la transpilation</li>
+							<li>Maximum de requête en parralèles (FF & Chrome -> 6)</li>
 						</ul>
 			    </aside>
 				</section>
@@ -325,8 +374,11 @@ jspm bundle clock-component --watch --inject
 </code></pre>
 					<aside class="notes">
 						<ul>
-							<li>génération d'un seul fichier</li>
-							<li>rebuild uniquement le fichier qui a changé</li>
+							<li>éviter transpile runtime</li>
+							<li>génération d'un bundle -> un seul fichier</li>
+							<li>rebuild uniquement le fichier qui a changé grâce à un systeme de cache</li>
+							<li>génération de sourcemap pour pouvoir lire le code</li>
+							<li>Inject la config du bundle dans le jspm.config.js</li>
 						</ul>
 			    </aside>
 				</section>
@@ -344,6 +396,13 @@ jspm bundle clock-component --watch --inject
 							<p><strong>21</strong> requêtes : <strong>2.35</strong> secondes</p>
 						</div>
 					</ul>
+					<aside class="notes">
+						<ul>
+							<li>avantage du runtine, rien besoin de faire fonctionne tout seul</li>
+							<li>pratique pour tester des techno, POC</li>
+							<li>c'est tout passé au bundle dès que possible</li>
+						</ul>
+			    </aside>
 				</section>
 
 				<section>
@@ -362,8 +421,10 @@ jspm build bootstrap.js app.bundle.js
 					</ul>
 					<aside class="notes">
 						<ul>
-							<li>qu'un seul fichier chargé</li>
-							<li>rollupjs module bundler</li>
+							<li>génération d'un bundle</li>
+							<li>plus besoin de fichier de config ni de SystemJS</li>
+							<li>rollupjs module bundler nouvelle génération</li>
+							<li>Tree-shaking</li>
 						</ul>
 			    </aside>
 				</section>
@@ -435,6 +496,12 @@ import './style.css!'
 &lt;/head>
 						</code></pre>
 					</div>
+					<aside class="notes">
+						<ul>
+							<li>Intéret avec les modules, tout centralisé</li>
+							<li>Import CSS, HTML</li>
+						</ul>
+					</aside>
 				</section>
 
         <section>
@@ -473,15 +540,14 @@ jspm run server.js
 
 				<section>
 					<h2>Conclusion</h2>
-					ajouter les liens ?
-					<p>rollup</p>
-					<p>jspm</p>
-					<p>hot reloader</p>
-					<p>jspm guide</p>
 				</section>
 
 				<section>
-					<h2>Questions&nbsp;?</h2>
+					<h2>Liens</h2>
+					<p>JSPM : <a href="http://jspm.io">http://jspm.io</a></p>
+					<p>SystemJS <a href="https://github.com/systemjs/systemjs">https://github.com/systemjs/systemjs</a></p>
+					<p>Rollup : <a href="http://rollupjs.org">http://rollupjs.org</a></p>
+					<p>JSPM Beta guide : <a href="http://jspm.io/0.17-beta-guide">http://jspm.io/0.17-beta-guide</a></p>
 				</section>
 			</div>
 		</div>
