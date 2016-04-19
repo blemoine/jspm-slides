@@ -59,9 +59,7 @@
 
 				<section>
 					<h2>Les balises script...</h2>
-
-
-						<pre><code data-trim>
+						<pre style="font-size:2.4rem"><code data-trim>
 &lt;script src="vendor/moment.js">&lt;/script>
 &lt;script src="vendor/lodash.js">&lt;/script>
 &lt;script src="vendor/jquery.js">&lt;/script>
@@ -124,19 +122,28 @@ export function multiply(a, b) {
 }
 </code></pre>
 <pre><code class="javascript" data-trim>
-import myAdd from './MyMath';
-import {multiply} from './MyMath';
+import myAdd from './MyMath.js';
+import {multiply} from './MyMath.js';
 
 myAdd(1, 2) //3
 multiply(2, 3) //6
 </code></pre>
 				</section>
 
+        <section>
+          <h2>ES6-Module Polyfill</h2>
+          <ul>
+            <li>Module Loader pour ES6</li>
+            <li><a href="https://github.com/ModuleLoader/es6-module-loader">https://github.com/ModuleLoader/es6-module-loader</a></li>
+            <li>License MIT</li>
+          </ul>
+        </section>
 
         <section>
           <h2>System JS</h2>
           <ul>
-            <li>Module Loader</li>
+            <li>Module Loader pour ES6... et le reste</li>
+            <li><a href="https://github.com/systemjs/systemjs">https://github.com/systemjs/systemjs</a></li>
             <li>License MIT</li>
           </ul>
         </section>
@@ -145,6 +152,7 @@ multiply(2, 3) //6
 					<h2>JSPM</h2>
           <ul>
             <li>Package Manager</li>
+            <li><a href="http://jspm.io/">http://jspm.io/</a></li>
             <li>License Apache2</li>
           </ul>
 				</section>
@@ -157,7 +165,7 @@ multiply(2, 3) //6
 
 				<section>
 					<h2>Installer JSPM</h2>
-					<pre><code data-trim class="bash">
+					<pre style="font-size:2.4rem"><code data-trim class="bash">
 						npm install jspm@beta --save-dev
 					</code></pre>
 					<aside class="notes">
@@ -171,7 +179,7 @@ multiply(2, 3) //6
 
 				<section>
 					<h2>Initialiser le projet</h2>
-					<pre><code data-trim class="bash" style="font-size:0.8em">
+					<pre style="font-size:2.4rem"><code data-trim class="bash" style="font-size:0.8em">
 jspm init
 
 ---
@@ -202,7 +210,7 @@ jspm init
 
 				<section>
 					<h2>jspm.browser.js</h2>
-					<pre><code data-trim class="javascript">
+					<pre style="font-size:2.4rem"><code data-trim class="javascript">
 SystemJS.config({
   baseURL: "/",
   paths: {
@@ -215,7 +223,7 @@ SystemJS.config({
 
 				<section>
 					<h2>jspm.config.js 1/2</h2>
-					<pre><code data-trim class="javascript">
+					<pre style="font-size:1.75rem"><code data-trim class="javascript">
 SystemJS.config({
   transpiler: "plugin-babel",
   packages: {
@@ -235,7 +243,7 @@ SystemJS.config({
 
 				<section>
 					<h2>jspm.config.js 2/2</h2>
-					<pre><code data-trim class="javascript">
+					<pre style="font-size:2.4rem"><code data-trim class="javascript">
 SystemJS.config({
   packageConfigPaths: [
     "github:*/*.json",
@@ -258,7 +266,7 @@ SystemJS.config({
 						<li><em>npm</em></li>
 						<li><em>custom</em></li>
 					</ul>
-					<pre><code data-trim class="bash">
+					<pre style="font-size:2.4rem"><code data-trim class="bash">
 jspm install angular
 jspm install github:username/repo
 jspm install npm:moment
@@ -281,23 +289,23 @@ jspm install npm:moment
 						<li><em>main</em></li>
 						<li><em>format</em></li>
 					</ul>
-					<pre><code data-trim class="bash">
+					<pre style="font-size:2.4rem"><code data-trim class="bash">
 jspm install github:user/repo -o "{ main: 'path/to/main' }"
 					</code></pre>
 				</section>
 
 				<section>
 					<h2>Surcharger le <em>package.json</em></h2>
-					<pre><code data-trim class="bash">
+					<pre style="font-size:1.75rem"><code data-trim class="bash">
 jspm install github:eligrey/FileSaver.js
 					</code></pre>
-					<pre class="fragment"><code data-trim class="bash">
+					<pre style="font-size:1.75rem" class="fragment"><code data-trim class="bash">
 warn Package eligrey/FileSaver.js has no "main" entry point set in its package config.
 					</code></pre>
-					<pre class="fragment"><code data-trim class="bash">
+					<pre  style="font-size:1.75rem" class="fragment"><code data-trim class="bash">
 jspm install github:eligrey/FileSaver.js -o "{ main: 'FileSaver.js' }"
 					</code></pre>
-					<pre class="fragment"><code data-trim class="js">
+					<pre style="font-size:1.75rem" class="fragment"><code data-trim class="js">
 "overrides": {
   "github:eligrey/FileSaver.js@master": {
     "main": "FileSaver.js"
@@ -317,14 +325,14 @@ jspm install github:eligrey/FileSaver.js -o "{ main: 'FileSaver.js' }"
 				<section>
 					<h2>Utiliser SystemJS</h2>
 					<div>index.html</div>
-					<pre style="font-size: 1.2rem"><code data-trim>
+					<pre style="font-size: 1.4rem"><code data-trim>
 &lt;script src="./jspm_packages/system.js">&lt;/script>
 &lt;script src="./jspm.browser.js">&lt;/script>
 &lt;script src="./jspm.config.js">&lt;/script>
 &lt;script>System.import('bootstrap.js');&lt;/script>
 					</code></pre>
 					<div>bootstrap.js</div>
-					<pre style="font-size: 1.2rem"><code data-trim>
+					<pre style="font-size: 1.4rem"><code data-trim>
 // import dependency
 import moment from 'moment';
 
@@ -367,7 +375,7 @@ component.render();</code></pre>
 						<li>Éviter la transpilation au runtime</li>
 						<li class="fragment" data-fragment-index="1">Créer un bundle avec le CLI de JSPM</li>
 					</ul>
-					<pre class="fragment" data-fragment-index="1"><code data-trim class="bash">
+					<pre style="font-size:2.4rem" class="fragment" data-fragment-index="1"><code data-trim class="bash">
 jspm bundle clock-component --watch
 </code></pre>
 					<aside class="notes">
@@ -406,7 +414,7 @@ jspm bundle clock-component --watch
 				<section>
 					<h2>Production</h2>
 					<p style="white-space:nowrap;">Création d'un bundle auto exécutable (via SystemJS Builder)&nbsp;:</p>
-					<pre><code data-trim>
+					<pre style="font-size:2.4rem" ><code data-trim>
 jspm build bootstrap.js app.bundle.js
 </code></pre>
 					<p>Principales options supportées&nbsp;:</p>
@@ -430,7 +438,7 @@ jspm build bootstrap.js app.bundle.js
         <section>
           <h2>Tree-shaking 1/2</h2>
 					bootstrap.js
-					<pre style="font-size: 1.3rem"><code data-trim>
+					<pre style="font-size: 1.4rem"><code data-trim>
 import moment from 'moment';
 import ClockComponent from './src/index.js';
 
@@ -441,7 +449,7 @@ component.render();
 </code></pre>
 
 					src/index.js
-					<pre style="font-size: 1.3rem"><code data-trim>
+					<pre style="font-size: 1.4rem"><code data-trim>
 export default function ClockComponent() {
   return {
     render: () => 'clock component rendering...'
@@ -488,18 +496,18 @@ component.render();
 				<section>
 					<h2>Plugins</h2>
 					<p>De nombreux plugins disponibles CSS, JSON...</p>
-					<pre><code data-trim class="bash">
+					<pre style="font-size:2.4rem" ><code data-trim class="bash">
 jspm install css
 					</code></pre>
 					<div class="fragment">
 						<p>Usage&nbsp;:</p>
-						<pre><code data-trim>
+						<pre style="font-size:2.4rem" ><code data-trim>
 import './style.css!'
 						</code></pre>
 					</div>
 					<div class="fragment">
 						<p>Ce qui se passe en réalité&nbsp;:</p>
-						<pre><code data-trim>
+						<pre style="font-size:2.4rem" ><code data-trim>
 &lt;head>
   &lt;title>Document&lt;/title>
   &lt;link type="text/css" rel="stylesheet" href="style.css">
@@ -516,7 +524,7 @@ import './style.css!'
 
         <section>
           <h2>Universal - <em>aka Isomorphic</em></h2>
-          <pre class="fragment"><code class="bash" data-trim>
+          <pre style="font-size:1.7rem"  class="fragment"><code class="bash" data-trim>
 jspm install --dev npm:express
           </code></pre>
           <pre class="fragment"><code class="javascript" data-trim>
@@ -533,7 +541,7 @@ app.get('/', (req, res) => {
 
 app.listen('8080', () => console.log('Listening on port 8080'));
           </code></pre>
-          <pre class="fragment"><code class="bash" data-trim>
+          <pre style="font-size:1.7rem"  class="fragment"><code class="bash" data-trim>
 jspm run server.js
           </code></pre>
 
@@ -543,8 +551,8 @@ jspm run server.js
 					<h2>La concurrence - Webpack</h2>
 					<ul>
 						<li>Bundle uniquement</li>
-						<li>Support d'autres format que JavaScript</li>
 						<li>Pas de package manager</li>
+            <li class="fragment">Plus à la mode</li>
 					</ul>
 				</section>
 
