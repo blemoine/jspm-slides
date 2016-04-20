@@ -195,7 +195,7 @@ jspm init
 							<li>init mode : Quick</li>
 							<li>Package name : clock-component</li>
 							<li>directory : src</li>
-							<li>baseURL : /</li>
+							<li>baseURL : . (current directory)</li>
 							<li>main : index.js</li>
 							<li>transpiler : babel</li>
 						</ul>
@@ -212,7 +212,7 @@ jspm init
 					<h2>jspm.browser.js</h2>
 					<pre style="font-size:2.4rem"><code data-trim class="javascript">
 SystemJS.config({
-  baseURL: "/",
+  baseURL: ".",
   paths: {
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*",
